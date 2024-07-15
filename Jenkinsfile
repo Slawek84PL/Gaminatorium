@@ -8,6 +8,13 @@ pipeline {
     stages {
         stage('Build') {
             parallel {
+                stage('Build Eureka Discovery') {
+                    steps {
+                        dir("eureka-discovery") {
+                            sh "gradle clean build"
+                        }
+                    }
+                }
                 stage('Build Gateway Balancer') {
                     steps {
                         dir("gateway-balancer") {
@@ -15,9 +22,9 @@ pipeline {
                         }
                     }
                 }
-                stage('Build Eureka Discovery') {
+                stage('Build Gaminatorium') {
                     steps {
-                        dir("eureka-discovery") {
+                        dir("gaminatorium-main") {
                             sh "gradle clean build"
                         }
                     }
