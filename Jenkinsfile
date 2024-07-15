@@ -7,15 +7,20 @@ pipeline {
 
     stages {
         stage('Build') {
-            steps {
-                dir("gateway-balancer") {
-                    sh "gradle clean build"
+            parallel {
+                stage('Build Gateway Balancer') {
+                    steps {
+                        dir("gateway-balancer") {
+                            sh "gradle clean build"
+                        }
+                    }
                 }
-            }
-
-            steps {
-                dir("eureka-discovery") {
-                    sh "gradle clean build"
+                stage('Build Eureka Discovery') {
+                    steps {
+                        dir("eureka-discovery") {
+                            sh "gradle clean build"
+                        }
+                    }
                 }
             }
         }
