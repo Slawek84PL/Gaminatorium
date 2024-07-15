@@ -12,6 +12,12 @@ pipeline {
                     sh "gradle clean build"
                 }
             }
+
+            steps {
+                dir("eureka-discovery") {
+                    sh "gradle clean build"
+                }
+            }
         }
     }
 }
