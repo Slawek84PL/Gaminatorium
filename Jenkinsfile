@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir("gaminatorium-main") {
-                    sh "./gradlew clean build"
+                dir("gateway-balancer") {
+                    sh "gradle clean build"
                 }
             }
         }
