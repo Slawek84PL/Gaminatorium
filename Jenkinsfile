@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                dir("gaminatorium-main")
                 sh "gradle clean build -x test"
             }
         }
