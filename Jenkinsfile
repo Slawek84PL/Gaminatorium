@@ -6,6 +6,10 @@ pipeline {
     }
 
     stages {
+        stage('Clear workspace') {
+            deleteDir();
+        }
+
         stage('Build') {
             parallel {
 //                 stage('Build Eureka Discovery') {
