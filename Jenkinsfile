@@ -7,7 +7,9 @@ pipeline {
 
     stages {
         stage('Clear workspace') {
-            deleteDir();
+            steps {
+                deleteDir();
+            }
         }
 
         stage('Build') {
