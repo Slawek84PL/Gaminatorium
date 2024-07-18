@@ -14,7 +14,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir("gaminatorium-main/monolith"){
+                dir("gaminatorium-main"){
                     withGradle {
                        sh 'gradle clean build --stacktrace -i'
                     }
